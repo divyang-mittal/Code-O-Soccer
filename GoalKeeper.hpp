@@ -39,7 +39,7 @@ namespace MyStrategy
 				GoToPoint(botID, state, dpoint, 0, false, true);
 
 		}
-		if ((state->ballPos.x>-HALF_FIELD_MAXX / 2) && ((state->ballPos.y<HALF_FIELD_MAXY/2) || (state->ballPos.y>-HALF_FIELD_MAXY/2)))
+		if ((state->ballPos.x>-HALF_FIELD_MAXX / 2) &&(state->ballPos.x<0.4*HALF_FIELD_MAXX) &&((state->ballPos.y<HALF_FIELD_MAXY/2) || (state->ballPos.y>-HALF_FIELD_MAXY/2)))
 		{//portion7&6
 			// dpoint.x = -HALF_FIELD_MAXX / 2;
 			Vec2D fpoint(state->homePos[botID].x, state->homePos[botID].y);
@@ -63,7 +63,7 @@ namespace MyStrategy
 			else
 				GoToPoint(botID, state, dpoint, 0, false, true);
 		}
-		if ((state->ballPos.x>-HALF_FIELD_MAXX / 2) && ((state->ballPos.y>HALF_FIELD_MAXY/2) || (state->ballPos.y<-HALF_FIELD_MAXY/2)))
+		if ((state->ballPos.x>-HALF_FIELD_MAXX / 2) &&(state->ballPos.x<HALF_FIELD_MAXX*0.4) ((state->ballPos.y>HALF_FIELD_MAXY/2) || (state->ballPos.y<-HALF_FIELD_MAXY/2)))
 		{//portion8&5
 			Vec2D fpoint(HALF_FIELD_MAXY, 0);
 			if (state->ballPos.y>HALF_FIELD_MAXY/2)
@@ -79,7 +79,7 @@ namespace MyStrategy
 			else
 				GoToPoint(botID, state, dpoint, 0, false, true);
 		}
-		if (state->ballPos.x >0)
+		if (state->ballPos.x >0.4*HALF_FIELD_MAXX)
 		{
 			Vec2D dpoint;
 			Vec2D goal;
