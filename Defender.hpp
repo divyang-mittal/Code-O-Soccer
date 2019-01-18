@@ -18,7 +18,7 @@ namespace MyStrategy
       GoToBall(botID,state,true);
       GoToPoint(botID,state,goal,0,true,true);
     }*/
-	  if ((state->ballPos.x >= -HALF_FIELD_MAXX / 3) && (state->ballPos.x <= 0))
+	  if ((state->ballPos.x >= -HALF_FIELD_MAXX*0.5) && (state->ballPos.x <= 0))
 		{
 			Vec2D ballPoint(state->ballPos.x, state->ballPos.y);
 			Vec2D dpoint(-HALF_FIELD_MAXX*0.5, state->ballPos.y);

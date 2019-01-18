@@ -15,7 +15,7 @@ namespace MyStrategy
 		//print("GoalKeeper\n");
 		if ((state->ballPos.y > HALF_FIELD_MAXY / 2) && (state->ballPos.x < -HALF_FIELD_MAXX / 2))
 		{ //portion1 
-			dpoint.x = -HALF_FIELD_MAXX+100;
+			dpoint.x = -HALF_FIELD_MAXX+2000;
 			dpoint.y = HALF_FIELD_MAXY / 2;
 			Vec2D fpoint(0, 0);
 	//		Vec2D ballPoint(state->ballPos.x, state->ballPos.y);
@@ -28,12 +28,12 @@ namespace MyStrategy
 		{  //portion4
 			// dpoint.x = state->ballPos.x;
 			dpoint.y = -HALF_FIELD_MAXY / 2;
-			dpoint.x = -HALF_FIELD_MAXX+100;
+			dpoint.x = -HALF_FIELD_MAXX+2000;
 			//dpoint.y = state->ballPos.y;
 		//	GoToPoint(botID,state, opp, -PI / 2, true, false);
 			Vec2D fpoint(0, HALF_FIELD_MAXY);
 		//	Vec2D ballPoint(state->ballPos.x, state->ballPos.y);
-			if (Vec2D::distSq(state->homePos[botID], state->ballPos) < 6 * BOT_BALL_THRESH)
+			if (Vec2D::distSq(state->homePos[botID], state->ballPos) < 4 * BOT_BALL_THRESH)
 				GoToPoint(botID, state, fpoint, PI / 2, true, true);
 			else
 				GoToPoint(botID, state, dpoint, 0, false, true);
@@ -44,7 +44,7 @@ namespace MyStrategy
 			// dpoint.x = -HALF_FIELD_MAXX / 2;
 			Vec2D fpoint(state->homePos[botID].x, state->homePos[botID].y);
 			Vec2D ballPoint(state->ballPos.x, state->ballPos.y);
-			dpoint.x = -HALF_FIELD_MAXX+200;
+			dpoint.x = -HALF_FIELD_MAXX+2000;
 			// dpoint.y = state->ballPos.y;
 			dpoint.y = state->ballPos.y;
 			GoToPoint(botID, state, dpoint, PI / 2, false, false);
@@ -57,7 +57,7 @@ namespace MyStrategy
 		if ((state->ballPos.x<-HALF_FIELD_MAXX / 2) && ((state->ballPos.y<HALF_FIELD_MAXY/2) || (state->ballPos.y>-HALF_FIELD_MAXY/2)))
 		{//portion2&3
 			Vec2D fpoint(0, 0);
-			Vec2D dpoint(-HALF_FIELD_MAXX+200, state->ballPos.y);
+			Vec2D dpoint(-HALF_FIELD_MAXX+2000, state->ballPos.y);
 			if (Vec2D::distSq(state->homePos[botID], state->ballPos) < 4 * BOT_BALL_THRESH)
 				GoToPoint(botID, state, fpoint, PI / 2, true, false);
 			else
@@ -71,7 +71,7 @@ namespace MyStrategy
 			if (state->ballPos.y < -HALF_FIELD_MAXY/2)
 				Vec2D fpoint(-HALF_FIELD_MAXY, 0);
 			Vec2D ballPoint(state->ballPos.x, state->ballPos.y);
-			dpoint.x = -HALF_FIELD_MAXX+500;
+			dpoint.x = -HALF_FIELD_MAXX+2000;
 			dpoint.y = state->ballPos.y;
 			GoToPoint(botID, state, dpoint, PI / 2, false, false);
 			if (Vec2D::distSq(state->homePos[botID], state->ballPos) < 4 * BOT_BALL_THRESH)
@@ -83,7 +83,7 @@ namespace MyStrategy
 		{
 			Vec2D dpoint;
 			Vec2D goal;
-			goal.x=HALF_FIELD_MAXX-500;
+			goal.x=HALF_FIELD_MAXX;
 			goal.y=0;
 			dpoint.y = -state->ballPos.y;
 			if (state->ballPos.y > HALF_FIELD_MAXY / 2)
@@ -116,11 +116,11 @@ namespace MyStrategy
 				GoToPoint(botID, state, dpoint, 0, false, true);
 			}
 		}*/
-		if (state->homePos[botID].x < -HALF_FIELD_MAXX)
+		if (state->homePos[botID].x < -HALF_FIELD_MAXX+1500)
 		{
 			Vec2D dpoint;
 			dpoint.y = state->ballPos.y;
-			dpoint.x = -HALF_FIELD_MAXX + 100;
+			dpoint.x = -HALF_FIELD_MAXX + 2000;
 			GoToPoint(botID, state, dpoint, PI / 2, true, false);
 		}
 		/*s	Vec2D dpoint(OUR_GOAL_X + BOT_RADIUS + 250, state->ballPos.y);
