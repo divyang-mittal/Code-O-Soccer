@@ -42,7 +42,7 @@ namespace MyStrategy
 		if ((state->ballPos.x>-HALF_FIELD_MAXX / 2) && ((state->ballPos.y<HALF_FIELD_MAXY/2) || (state->ballPos.y>-HALF_FIELD_MAXY/2)))
 		{//portion7&6
 			// dpoint.x = -HALF_FIELD_MAXX / 2;
-			Vec2D fpoint(state->homePos[2].x, state->homePos[2].y);
+			Vec2D fpoint(state->homePos[botID].x, state->homePos[botID].y);
 			Vec2D ballPoint(state->ballPos.x, state->ballPos.y);
 			dpoint.x = state->ballPos.x;
 			// dpoint.y = state->ballPos.y;
@@ -102,8 +102,9 @@ namespace MyStrategy
 			Vec2D dpoint;
 			dpoint.x = -HALF_FIELD_MAXX + 1000;
 			dpoint.y = state->ballPos.y;
+			int awaybot = state->oppBotNearestToBall;
 			//nearest bot
-			if (Vec2D::distSq(state->awayPos[2], state->ballPos) < 6*BOT_BALL_THRESH)
+			if (Vec2D::distSq(state->awayPos[awaybot], state->ballPos) < 6*BOT_BALL_THRESH)
 			{
 				GoToPoint(botID, state, ballPoint, 0, false, true);
 			}
